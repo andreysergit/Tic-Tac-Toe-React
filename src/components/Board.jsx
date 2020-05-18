@@ -10,7 +10,7 @@ export class Board extends React.Component {
     };
   }
   handleClick(i) {
-    const squares = this.state.squares.splice();
+    const squares = this.state.squares.slice();
     if (calculateWinner(squares) || squares[i]) {
       return;
     }
@@ -33,7 +33,7 @@ export class Board extends React.Component {
     const winner = calculateWinner(this.state.squares);
     let status;
     if (winner) {
-      status = "Выиграл" + winner;
+      status = "Выиграл: " + winner;
     } else status = "Следующий ход: " + (this.state.xisNext ? "X" : "O");
     return (
       <div>
